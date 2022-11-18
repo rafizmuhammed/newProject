@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import categories
+from .models import categories,collections
 
 # Create your views here.
 
@@ -9,3 +9,8 @@ def index(request):
 def category(request):
     obj = categories.objects.all()
     return render(request,'category.html',{'object':obj})
+
+def collection(request):
+    p_id = request.GET['id']
+    obj = collections.objects.get(id = p_id)
+    return render(request,'collections.html',{'obj1':obj})

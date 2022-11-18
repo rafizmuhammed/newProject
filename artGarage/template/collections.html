@@ -165,27 +165,45 @@
                     <h6 class="text-primary font-weight-normal text-uppercase mb-3">stationery & supplies outlet</h6>
                     <h1 class="mb-4">Top Products</h1>
                 </div>
-            </div><hr><br>
-
-
-
-
-            <div class="row mx-1 portfolio-container">        
-                <div class="collections">
-                    <h3>
-                        <a href="product/?id={{data.id}}">
-                            {{data.name}}
-                        </a>
-                    </h3>
-                </div>
             </div>
 
-            {% endfor %}
+
+
+            <div class="row mx-1 portfolio-container">
+                
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
      
 
     <!-- Projects End -->
 
+    <div class="row mx-1 portfolio-container"> 
+        <div class="collections">
+            {% if obj1.element.all %} 
+            {% for i in obj1.element.all %}      
+            
+            <h3>
+                <a href="product/?id={{i.id}}">
+                    {{i.name}}
+                </a>
+            </h3>
+            <img src="{{i.img.url}}" height="280px" width="400px">
 
+            <h2>Rs:{{i.price}}</h2>
+            {% endfor %}
+            {% else %}
+            <h2>no collections</h2>
+            {% endif %}
+        </div>
+    </div>
 
 
 
