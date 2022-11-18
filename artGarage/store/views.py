@@ -12,5 +12,10 @@ def category(request):
 
 def collection(request):
     p_id = request.GET['id']
-    obj = collections.objects.get(id = p_id)
+    obj = categories.objects.get(id = p_id)
     return render(request,'collections.html',{'obj1':obj})
+
+def product(request):
+    p_id = request.GET['id']
+    obj = collections.objects.get(id = p_id)
+    return render(request,'product.html',{'obj2':obj})
